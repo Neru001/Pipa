@@ -35,3 +35,4 @@ if __name__ == "__main__":
 
     print("Жаңа вольер (жануар қосылды):", new_savanna)
     print("Ескі вольер өзгеріссіз:", savanna)
+    print("Мансур")
