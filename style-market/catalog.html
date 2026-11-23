@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Style Market — интернет-магазин модной одежды, обуви и аксессуаров">
+  <title>Style Market — Каталог</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ШАПКА САЙТА -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo">
+        <img src="images/logo.svg" alt="Логотип Style Market" width="40" height="40">
+        <span>Style<b>Market</b></span>
+      </a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">Главная</a></li>
+          <li><a href="catalog.html" class="nav__link active">Каталог</a></li>
+          <li><a href="cart.html" class="nav__link">Корзина <span class="cart-count">0</span></a></li>
+          <li><a href="account.html" class="nav__link">Личный кабинет</a></li>
+          <li><a href="contacts.html" class="nav__link">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <h1>Каталог товаров</h1>
+        <p>Одежда, обувь и аксессуары. Используйте поиск и фильтры, чтобы быстро найти нужное.</p>
+      </div>
+    </section>
+
+    <!-- ПОИСК И ФИЛЬТРЫ -->
+    <section class="section section--tight">
+      <div class="container">
+        <div class="toolbar">
+          <input type="search" id="search" class="input" placeholder="Поиск по названию…" aria-label="Поиск по каталогу">
+          <div class="filters" id="filters">
+            <button class="chip active" data-cat="Все">Все</button>
+            <button class="chip" data-cat="Одежда">Одежда</button>
+            <button class="chip" data-cat="Платья">Платья</button>
+            <button class="chip" data-cat="Обувь">Обувь</button>
+            <button class="chip" data-cat="Аксессуары">Аксессуары</button>
+          </div>
+          <select id="sort" class="input input--select" aria-label="Сортировка">
+            <option value="default">По популярности</option>
+            <option value="price-asc">Сначала дешёвые</option>
+            <option value="price-desc">Сначала дорогие</option>
+            <option value="name">По названию</option>
+          </select>
+        </div>
+        <p class="found" id="found"></p>
+        <!-- Карточки товаров создаются в script.js -->
+        <div class="products" id="catalog"></div>
+        <p class="empty" id="empty" hidden>По вашему запросу ничего не найдено 😔</p>
+      </div>
+    </section>
+
+    <!-- ТАБЛИЦА РАЗМЕРОВ -->
+    <section class="section section--light">
+      <div class="container">
+        <h2 class="section__title">Таблица размеров</h2>
+        <div class="table-wrap">
+          <table class="table">
+            <caption>Соответствие размеров одежды (см)</caption>
+            <thead>
+              <tr><th>Размер</th><th>RU</th><th>Обхват груди</th><th>Обхват талии</th><th>Обхват бёдер</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>XS</td><td>42</td><td>82–85</td><td>63–66</td><td>89–92</td></tr>
+              <tr><td>S</td><td>44</td><td>86–89</td><td>67–70</td><td>93–96</td></tr>
+              <tr><td>M</td><td>46</td><td>90–93</td><td>71–74</td><td>97–100</td></tr>
+              <tr><td>L</td><td>48</td><td>94–97</td><td>75–78</td><td>101–104</td></tr>
+              <tr><td>XL</td><td>50</td><td>98–101</td><td>79–82</td><td>105–108</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- МОДАЛЬНОЕ ОКНО «ПОДРОБНЕЕ О ТОВАРЕ» -->
+    <div class="modal" id="modal" hidden>
+      <div class="modal__overlay" data-close></div>
+      <article class="modal__box" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal__close" data-close aria-label="Закрыть">×</button>
+        <img id="modal-img" alt="" class="modal__img">
+        <div class="modal__info">
+          <p class="tag" id="modal-cat"></p>
+          <h2 id="modal-title"></h2>
+          <p id="modal-desc"></p>
+          <p class="price price--big" id="modal-price"></p>
+          <label for="modal-size">Размер:</label>
+          <select id="modal-size" class="input input--select"></select>
+          <button class="btn" id="modal-add">Добавить в корзину</button>
+        </div>
+      </article>
+    </div>
+  </main>
+
+
+  <!-- ПОДВАЛ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="index.html" class="logo logo--light"><img src="images/logo.svg" alt="" width="32" height="32"><span>Style<b>Market</b></span></a>
+        <p>Модная одежда для каждого дня.</p>
+      </div>
+      <nav aria-label="Навигация в подвале">
+        <ul class="footer__links">
+          <li><a href="index.html">Главная</a></li>
+          <li><a href="catalog.html">Каталог</a></li>
+          <li><a href="cart.html">Корзина</a></li>
+          <li><a href="account.html">Личный кабинет</a></li>
+          <li><a href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+      <div>
+        <p>📞 <a href="tel:+78001234567">8 800 123-45-67</a></p>
+        <p>✉️ <a href="mailto:info@stylemarket.example">info@stylemarket.example</a></p>
+      </div>
+    </div>
+    <p class="footer__copy">© 2026 Style Market. Учебный проект.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
