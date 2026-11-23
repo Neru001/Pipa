@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Открыть Style Market в Chrome",
+      "type": "chrome",
+      "request": "launch",
+      "file": "${workspaceFolder}/style-market/index.html"
+    },
+    {
+      "name": "Открыть Style Market в Edge",
+      "type": "msedge",
+      "request": "launch",
+      "file": "${workspaceFolder}/style-market/index.html"
+    }
+  ]
+}
