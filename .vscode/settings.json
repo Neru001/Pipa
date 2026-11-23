@@ -1,0 +1,8 @@
+{
+  "liveServer.settings.root": "/style-market",
+  "liveServer.settings.port": 5500,
+  "editor.formatOnSave": false,
+  "editor.tabSize": 2,
+  "files.encoding": "utf8",
+  "emmet.includeLanguages": { "javascript": "javascriptreact" }
+}
