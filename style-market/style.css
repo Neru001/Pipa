@@ -65,6 +65,7 @@ ul { list-style: none; }
   font: 600 1rem var(--font);
   cursor: pointer;
   text-align: center;
+  white-space: nowrap;
   transition: background .2s, transform .2s, box-shadow .2s, color .2s;
 }
 .btn:hover {
