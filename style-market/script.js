@@ -5,14 +5,14 @@
 
 /* ---------- Данные о товарах ---------- */
 const PRODUCTS = [
-  { id: 1, name: "Футболка Coral Basic", cat: "Одежда", price: 1990, old: 2490, img: "tshirt", sizes: ["XS", "S", "M", "L", "XL"], desc: "Базовая футболка из 100% хлопка. Мягкая, не теряет форму после стирки.", hit: false },
-  { id: 2, name: "Худи Oversize Blue", cat: "Одежда", price: 4990, img: "hoodie", sizes: ["S", "M", "L", "XL"], desc: "Тёплое худи из плотного футера с начёсом, свободный крой, карман-кенгуру.", hit: true },
-  { id: 3, name: "Джинсы Straight Indigo", cat: "Одежда", price: 5490, img: "jeans", sizes: ["28", "30", "32", "34", "36"], desc: "Прямые джинсы классической посадки из плотного денима.", hit: false },
-  { id: 4, name: "Платье Berry Evening", cat: "Платья", price: 6290, old: 7990, img: "dress", sizes: ["XS", "S", "M", "L"], desc: "Вечернее платье А-силуэта из струящейся ткани. Идеально для праздника.", hit: true },
-  { id: 5, name: "Кроссовки Urban Mint", cat: "Обувь", price: 7490, img: "sneakers", sizes: ["37", "38", "39", "40", "41", "42", "43"], desc: "Лёгкие кроссовки с амортизирующей подошвой на каждый день.", hit: true },
-  { id: 6, name: "Куртка Classic Brown", cat: "Одежда", price: 9990, img: "jacket", sizes: ["S", "M", "L", "XL"], desc: "Демисезонная куртка из эко-кожи с подкладкой.", hit: false },
-  { id: 7, name: "Кепка Sunny", cat: "Аксессуары", price: 1290, img: "cap", sizes: ["Универсальный"], desc: "Хлопковая кепка с регулируемой застёжкой.", hit: false },
-  { id: 8, name: "Сумка Violet Tote", cat: "Аксессуары", price: 3590, img: "bag", sizes: ["Универсальный"], desc: "Вместительная сумка-шоппер с внутренним карманом.", hit: false }
+  { id: 1, name: "Футболка Coral Basic", cat: "Одежда", price: 1990, old: 2490, img: "tshirt.jpg", sizes: ["XS", "S", "M", "L", "XL"], desc: "Базовая футболка из 100% хлопка. Мягкая, не теряет форму после стирки.", hit: false },
+  { id: 2, name: "Худи Oversize Royal Blue", cat: "Одежда", price: 4990, img: "hoodie.jpg", sizes: ["S", "M", "L", "XL"], desc: "Тёплое худи из плотного футера с начёсом, свободный крой, карман-кенгуру.", hit: true },
+  { id: 3, name: "Джинсы Straight Indigo", cat: "Одежда", price: 5490, img: "jeans.jpg", sizes: ["28", "30", "32", "34", "36"], desc: "Прямые джинсы классической посадки из плотного денима.", hit: false },
+  { id: 4, name: "Платье Noir Stripe", cat: "Платья", price: 6290, old: 7990, img: "dress.jpg", sizes: ["XS", "S", "M", "L"], desc: "Длинное вечернее платье в тонкую полоску с V-образным вырезом.", hit: true },
+  { id: 5, name: "Кеды Urban Mint", cat: "Обувь", price: 7490, img: "sneakers.jpg", sizes: ["37", "38", "39", "40", "41", "42", "43"], desc: "Замшевые кеды мятного цвета на светлой подошве.", hit: true },
+  { id: 6, name: "Замшевая куртка Rust", cat: "Одежда", price: 9990, img: "jacket.jpg", sizes: ["S", "M", "L", "XL"], desc: "Демисезонная куртка из натуральной замши на молнии, с отложным воротником.", hit: false },
+  { id: 7, name: "Кепка Orange Sport", cat: "Аксессуары", price: 1290, img: "cap.jpg", sizes: ["Универсальный"], desc: "Яркая хлопковая кепка с изогнутым козырьком и регулируемой застёжкой.", hit: false },
+  { id: 8, name: "Сумка Violet Tote", cat: "Аксессуары", price: 3590, img: "bag.jpg", sizes: ["Универсальный"], desc: "Вместительная сумка из кожи с тиснением, съёмный ремень через плечо.", hit: false }
 ];
 
 const DELIVERY_PRICE = 300;
@@ -161,7 +161,7 @@ function initCatalog() {
 
     grid.innerHTML = list.map((p) => `
       <article class="card">
-        <img src="images/${p.img}.svg" alt="${p.name}" class="card__img" data-details="${p.id}">
+        <img src="images/${p.img}" alt="${p.name}" class="card__img" data-details="${p.id}">
         <div class="card__body">
           ${p.hit ? '<span class="badge">Хит</span>' : p.old ? '<span class="badge">Скидка</span>' : ""}
           <span class="card__cat">${p.cat}</span>
@@ -200,7 +200,7 @@ function initCatalog() {
     const el = e.target.closest("[data-details]");
     if (!el) return;
     current = findProduct(el.dataset.details);
-    $("#modal-img").src = `images/${current.img}.svg`;
+    $("#modal-img").src = `images/${current.img}`;
     $("#modal-img").alt = current.name;
     $("#modal-cat").textContent = current.cat;
     $("#modal-title").textContent = current.name;
@@ -240,7 +240,7 @@ function initCart() {
       const p = findProduct(item.id);
       return `
         <article class="cart-item">
-          <img src="images/${p.img}.svg" alt="${p.name}">
+          <img src="images/${p.img}" alt="${p.name}">
           <div><h3>${p.name}</h3><small>Размер: ${item.size} · ${formatPrice(p.price)}</small></div>
           <div class="qty">
             <button data-minus="${i}" aria-label="Уменьшить">−</button>
