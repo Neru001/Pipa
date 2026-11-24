@@ -5,24 +5,24 @@
 
 /* ---------- Данные о товарах ---------- */
 const PRODUCTS = [
-  { id: 1, name: "Футболка Coral Basic", cat: "Одежда", price: 1990, old: 2490, img: "tshirt.jpg", sizes: ["XS", "S", "M", "L", "XL"], desc: "Базовая футболка из 100% хлопка. Мягкая, не теряет форму после стирки.", hit: false },
-  { id: 2, name: "Худи Oversize Royal Blue", cat: "Одежда", price: 4990, img: "hoodie.jpg", sizes: ["S", "M", "L", "XL"], desc: "Тёплое худи из плотного футера с начёсом, свободный крой, карман-кенгуру.", hit: true },
-  { id: 3, name: "Джинсы Straight Indigo", cat: "Одежда", price: 5490, img: "jeans.jpg", sizes: ["28", "30", "32", "34", "36"], desc: "Прямые джинсы классической посадки из плотного денима.", hit: false },
-  { id: 4, name: "Платье Noir Stripe", cat: "Платья", price: 6290, old: 7990, img: "dress.jpg", sizes: ["XS", "S", "M", "L"], desc: "Длинное вечернее платье в тонкую полоску с V-образным вырезом.", hit: true },
-  { id: 5, name: "Кеды Urban Mint", cat: "Обувь", price: 7490, img: "sneakers.jpg", sizes: ["37", "38", "39", "40", "41", "42", "43"], desc: "Замшевые кеды мятного цвета на светлой подошве.", hit: true },
-  { id: 6, name: "Замшевая куртка Rust", cat: "Одежда", price: 9990, img: "jacket.jpg", sizes: ["S", "M", "L", "XL"], desc: "Демисезонная куртка из натуральной замши на молнии, с отложным воротником.", hit: false },
-  { id: 7, name: "Кепка Orange Sport", cat: "Аксессуары", price: 1290, img: "cap.jpg", sizes: ["Универсальный"], desc: "Яркая хлопковая кепка с изогнутым козырьком и регулируемой застёжкой.", hit: false },
-  { id: 8, name: "Сумка Violet Tote", cat: "Аксессуары", price: 3590, img: "bag.jpg", sizes: ["Универсальный"], desc: "Вместительная сумка из кожи с тиснением, съёмный ремень через плечо.", hit: false }
+  { id: 1, name: "Футболка Coral Basic", cat: "Одежда", price: 11990, old: 14990, img: "tshirt.jpg", sizes: ["XS", "S", "M", "L", "XL"], desc: "Базовая футболка из 100% хлопка. Мягкая, не теряет форму после стирки.", hit: false },
+  { id: 2, name: "Худи Oversize Royal Blue", cat: "Одежда", price: 29990, img: "hoodie.jpg", sizes: ["S", "M", "L", "XL"], desc: "Тёплое худи из плотного футера с начёсом, свободный крой, карман-кенгуру.", hit: true },
+  { id: 3, name: "Джинсы Straight Indigo", cat: "Одежда", price: 32990, img: "jeans.jpg", sizes: ["28", "30", "32", "34", "36"], desc: "Прямые джинсы классической посадки из плотного денима.", hit: false },
+  { id: 4, name: "Платье Noir Stripe", cat: "Платья", price: 37990, old: 47990, img: "dress.jpg", sizes: ["XS", "S", "M", "L"], desc: "Длинное вечернее платье в тонкую полоску с V-образным вырезом.", hit: true },
+  { id: 5, name: "Кеды Urban Mint", cat: "Обувь", price: 44990, img: "sneakers.jpg", sizes: ["37", "38", "39", "40", "41", "42", "43"], desc: "Замшевые кеды мятного цвета на светлой подошве.", hit: true },
+  { id: 6, name: "Замшевая куртка Rust", cat: "Одежда", price: 59990, img: "jacket.jpg", sizes: ["S", "M", "L", "XL"], desc: "Демисезонная куртка из натуральной замши на молнии, с отложным воротником.", hit: false },
+  { id: 7, name: "Кепка Orange Sport", cat: "Аксессуары", price: 7990, img: "cap.jpg", sizes: ["Универсальный"], desc: "Яркая хлопковая кепка с изогнутым козырьком и регулируемой застёжкой.", hit: false },
+  { id: 8, name: "Сумка Violet Tote", cat: "Аксессуары", price: 21490, img: "bag.jpg", sizes: ["Универсальный"], desc: "Вместительная сумка из кожи с тиснением, съёмный ремень через плечо.", hit: false }
 ];
 
-const DELIVERY_PRICE = 300;
-const FREE_DELIVERY_FROM = 5000;
+const DELIVERY_PRICE = 1500;
+const FREE_DELIVERY_FROM = 30000;
 const PROMO_CODES = { STYLE10: 0.10 };
 
 /* ---------- Вспомогательные функции ---------- */
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
-const formatPrice = (n) => n.toLocaleString("ru-RU") + " ₽";
+const formatPrice = (n) => n.toLocaleString("ru-RU") + " ₸";
 const findProduct = (id) => PRODUCTS.find((p) => p.id === Number(id));
 
 const storage = {
@@ -257,7 +257,7 @@ function initCart() {
     const discount = Math.round(subtotal * discountRate);
     $("#sum-items").textContent = formatPrice(subtotal);
     $("#sum-delivery").textContent = delivery ? formatPrice(delivery) : "Бесплатно";
-    $("#sum-discount").textContent = discount ? "−" + formatPrice(discount) : "0 ₽";
+    $("#sum-discount").textContent = discount ? "−" + formatPrice(discount) : "0 ₸";
     $("#sum-total").textContent = formatPrice(subtotal - discount + delivery);
     return subtotal - discount + delivery;
   }
