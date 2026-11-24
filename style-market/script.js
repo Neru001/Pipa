@@ -10,9 +10,9 @@ const PRODUCTS = [
   { id: 3, name: "Джинсы Straight Indigo", cat: "Одежда", price: 5490, img: "jeans.jpg", sizes: ["28", "30", "32", "34", "36"], desc: "Прямые джинсы классической посадки из плотного денима.", hit: false },
   { id: 4, name: "Платье Noir Stripe", cat: "Платья", price: 6290, old: 7990, img: "dress.jpg", sizes: ["XS", "S", "M", "L"], desc: "Длинное вечернее платье в тонкую полоску с V-образным вырезом.", hit: true },
   { id: 5, name: "Кеды Urban Mint", cat: "Обувь", price: 7490, img: "sneakers.jpg", sizes: ["37", "38", "39", "40", "41", "42", "43"], desc: "Замшевые кеды мятного цвета на светлой подошве.", hit: true },
-  { id: 6, name: "Куртка Classic Brown", cat: "Одежда", price: 9990, img: "jacket.svg", sizes: ["S", "M", "L", "XL"], desc: "Демисезонная куртка из эко-кожи с подкладкой.", hit: false },
-  { id: 7, name: "Кепка Sunny", cat: "Аксессуары", price: 1290, img: "cap.svg", sizes: ["Универсальный"], desc: "Хлопковая кепка с регулируемой застёжкой.", hit: false },
-  { id: 8, name: "Сумка Violet Tote", cat: "Аксессуары", price: 3590, img: "bag.svg", sizes: ["Универсальный"], desc: "Вместительная сумка-шоппер с внутренним карманом.", hit: false }
+  { id: 6, name: "Замшевая куртка Rust", cat: "Одежда", price: 9990, img: "jacket.jpg", sizes: ["S", "M", "L", "XL"], desc: "Демисезонная куртка из натуральной замши на молнии, с отложным воротником.", hit: false },
+  { id: 7, name: "Кепка Orange Sport", cat: "Аксессуары", price: 1290, img: "cap.jpg", sizes: ["Универсальный"], desc: "Яркая хлопковая кепка с изогнутым козырьком и регулируемой застёжкой.", hit: false },
+  { id: 8, name: "Сумка Violet Tote", cat: "Аксессуары", price: 3590, img: "bag.jpg", sizes: ["Универсальный"], desc: "Вместительная сумка из кожи с тиснением, съёмный ремень через плечо.", hit: false }
 ];
 
 const DELIVERY_PRICE = 300;
